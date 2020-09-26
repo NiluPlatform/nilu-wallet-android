@@ -6,13 +6,20 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10")
-        classpath("com.android.tools.build:gradle:4.1.0-rc03")
+        classpath(Config.BuildPlugins.kotlinGradlePlugin)
+        classpath(Config.BuildPlugins.androidGradle)
+        classpath(Config.BuildPlugins.hiltGradlePlugin)
     }
 }
-group = "tech.nilu.wallet"
-version = "1.0-SNAPSHOT"
+group = Config.Android.applicationId
+version = Config.Android.versionName
 
 repositories {
     mavenCentral()
+}
+
+tasks {
+    val clean by registering(Delete::class) {
+        delete(buildDir)
+    }
 }

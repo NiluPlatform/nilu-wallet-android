@@ -1,10 +1,12 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    kotlin("kapt")
     id("kotlin-android-extensions")
+    id("dagger.hilt.android.plugin")
 }
-group = "tech.nilu.wallet"
-version = "1.0-SNAPSHOT"
+group = Config.Android.applicationId
+version = Config.Android.versionName
 
 repositories {
     gradlePluginPortal()
@@ -14,22 +16,29 @@ repositories {
 }
 dependencies {
     implementation(project(":shared"))
-    implementation("com.google.android.material:material:1.2.0")
-    implementation("androidx.appcompat:appcompat:1.2.0")
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+    implementation(Config.Libs.material)
+    implementation(Config.Libs.appcompat)
+    implementation(Config.Libs.constraintlayout)
+    implementation(Config.Libs.hilt)
+
+    kapt(Config.Libs.hiltCompiler)
 }
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(Config.Android.compileSdkVersion)
     defaultConfig {
-        applicationId = "tech.nilu.wallet.app"
-        minSdkVersion(24)
-        targetSdkVersion(29)
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = Config.Android.applicationId
+        minSdkVersion(Config.Android.minSdkVersion)
+        targetSdkVersion(Config.Android.targetSdkVersion)
+        versionCode = Config.Android.versionCode
+        versionName = Config.Android.versionName
     }
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
+            proguardFiles("proguard-rules.pro")
         }
+    }
+    buildFeatures {
+        dataBinding = true
     }
 }

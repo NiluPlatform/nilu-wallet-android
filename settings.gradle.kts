@@ -18,4 +18,3 @@ rootProject.name = "NiluWallet"
 
 include(":app")
 include(":shared")
-
