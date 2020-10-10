@@ -15,6 +15,11 @@ pluginManagement {
 }
 rootProject.name = "NiluWallet"
 
-
 include(":app")
 include(":shared")
+include(
+    ":core:networking"
+)
+include(
+    ":feature:main"
+)
