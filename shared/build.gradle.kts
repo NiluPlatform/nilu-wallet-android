@@ -33,7 +33,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation(Config.Libs.material)
+                implementation(Dependencies.MDC.material)
             }
         }
         val androidTest by getting {

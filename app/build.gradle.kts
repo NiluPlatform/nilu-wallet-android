@@ -29,18 +29,26 @@ android {
 }
 
 dependencies {
-    implementation(project(":shared"))
+    implementation(project(":core:databinding"))
+    implementation(project(":core:ui:view"))
     implementation(project(":feature:main"))
+    implementation(project(":shared"))
 
-    implementation(Config.Libs.appcompat)
-    implementation(Config.Libs.constraintlayout)
-    implementation(Config.Libs.coreKtx)
-    implementation(Config.Libs.material)
-    implementation(Config.Libs.hilt)
-    implementation(Config.Libs.web3j)
-    implementation(Config.Libs.rxJava)
-    implementation(Config.Libs.rxAndroid)
-    implementation(Config.Libs.rxKotlin)
+    implementation(Dependencies.AndroidX.appcompat)
+    implementation(Dependencies.AndroidX.constraintLayout)
+    implementation(Dependencies.AndroidX.coreKtx)
+    implementation(Dependencies.AndroidX.Fragment.fragmentKtx)
 
-    kapt(Config.Libs.hiltCompiler)
+    implementation(Dependencies.Hilt.hilt)
+    implementation(Dependencies.AndroidX.Hilt.lifecycleViewModel)
+    kapt(Dependencies.Hilt.compiler)
+    kapt(Dependencies.AndroidX.Hilt.compiler)
+
+    implementation(Dependencies.MDC.material)
+
+    implementation(Dependencies.ReactiveX.rxJava)
+    implementation(Dependencies.ReactiveX.rxAndroid)
+    implementation(Dependencies.ReactiveX.rxKotlin)
+
+    implementation(Dependencies.web3j)
 }

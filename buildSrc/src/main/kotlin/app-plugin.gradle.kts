@@ -12,6 +12,7 @@ repositories {
     mavenCentral()
 }
 
+@Suppress("UnstableApiUsage")
 android {
     compileSdkVersion(Config.Android.compileSdkVersion)
     defaultConfig {

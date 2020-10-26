@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android-extensions")
 }
 
+@Suppress("UnstableApiUsage")
 android {
     androidExtensions {
         isExperimental = true
@@ -13,8 +14,9 @@ android {
 }
 
 dependencies {
-    implementation(Config.Libs.appcompat)
-    implementation(Config.Libs.constraintlayout)
-    implementation(Config.Libs.coreKtx)
-    implementation(Config.Libs.material)
+    implementation(Dependencies.AndroidX.appcompat)
+    implementation(Dependencies.AndroidX.constraintLayout)
+    implementation(Dependencies.AndroidX.coreKtx)
+
+    implementation(Dependencies.MDC.material)
 }

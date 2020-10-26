@@ -1,5 +1,4 @@
 buildscript {
-    val kotlin_version by extra("1.4.10")
     repositories {
         gradlePluginPortal()
         jcenter()
@@ -7,10 +6,9 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath(Config.BuildPlugins.kotlinGradlePlugin)
-        classpath(Config.BuildPlugins.androidGradle)
-        classpath(Config.BuildPlugins.hiltGradlePlugin)
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+        classpath(Dependencies.Kotlin.gradlePlugin)
+        classpath(Dependencies.androidGradlePlugin)
+        classpath(Dependencies.Hilt.gradlePlugin)
     }
 }
 group = Config.Android.applicationId

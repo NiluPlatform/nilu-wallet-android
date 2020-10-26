@@ -18,7 +18,10 @@ rootProject.name = "NiluWallet"
 include(":app")
 include(":shared")
 include(
-    ":core:networking"
+    ":core:databinding",
+    ":core:networking",
+    ":core:ui:resources",
+    ":core:ui:view"
 )
 include(
     ":feature:main"

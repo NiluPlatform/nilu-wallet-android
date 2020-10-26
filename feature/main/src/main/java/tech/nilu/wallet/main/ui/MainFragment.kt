@@ -2,26 +2,24 @@ package tech.nilu.wallet.main.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import tech.nilu.wallet.main.R
+import androidx.fragment.app.viewModels
+import dagger.hilt.android.AndroidEntryPoint
+import tech.nilu.wallet.databinding.BindableFragment
 import tech.nilu.wallet.main.databinding.FragmentMainBinding
 
-class MainFragment : Fragment() {
-    override fun onCreateView(
+@AndroidEntryPoint
+class MainFragment : BindableFragment<FragmentMainBinding>() {
+    private val viewModel: MainViewModel by viewModels()
+
+    override fun createBinding(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val binding = DataBindingUtil.inflate<FragmentMainBinding>(
-            inflater,
-            R.layout.fragment_main,
-            container,
-            false
-        )
-        return binding.root
+    ): FragmentMainBinding = FragmentMainBinding.inflate(inflater, container, false)
+
+    override fun onViewCreated(binding: FragmentMainBinding, savedInstanceState: Bundle?) {
+
     }
 
     companion object {
