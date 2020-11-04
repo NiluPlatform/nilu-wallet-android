@@ -16,12 +16,10 @@ pluginManagement {
 rootProject.name = "NiluWallet"
 
 include(":app")
-include(":shared")
+include(":web3core")
 include(
     ":core:databinding",
-    ":core:networking",
-    ":core:ui:resources",
-    ":core:ui:view"
+    ":core:ui"
 )
 include(
     ":feature:main"

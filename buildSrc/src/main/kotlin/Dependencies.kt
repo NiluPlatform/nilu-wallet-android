@@ -54,6 +54,19 @@ object Dependencies {
     object Kotlin {
         private const val version = "1.4.10"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
+        const val serialization = "org.jetbrains.kotlin:kotlin-serialization:$version"
+    }
+
+    object KotlinX {
+        private const val coroutinesVersion = "1.4.1"
+        private const val serializationVersion = "1.0.1"
+        const val coroutinesCore =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+        const val coroutinesAndroid =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+        const val coroutinesRx2 = "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:$coroutinesVersion"
+        const val serialization =
+            "org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion"
     }
 
     object MDC {

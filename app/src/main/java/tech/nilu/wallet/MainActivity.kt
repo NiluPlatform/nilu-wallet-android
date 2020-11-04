@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import dagger.hilt.android.AndroidEntryPoint
+import tech.nilu.main.ui.MainFragment
 import tech.nilu.wallet.databinding.ActivityMainBinding
-import tech.nilu.wallet.main.ui.MainFragment
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

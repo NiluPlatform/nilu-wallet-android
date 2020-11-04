@@ -9,7 +9,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:ui:view"))
+    implementation(project(":core:ui"))
 
     api(Dependencies.Dagger.dagger)
 

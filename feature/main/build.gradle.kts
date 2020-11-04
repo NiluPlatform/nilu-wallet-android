@@ -5,7 +5,7 @@ plugins {
 
 dependencies {
     implementation(project(":core:databinding"))
-    implementation(project(":core:ui:view"))
+    implementation(project(":core:ui"))
 
     implementation(Dependencies.Hilt.hilt)
     implementation(Dependencies.AndroidX.Hilt.lifecycleViewModel)

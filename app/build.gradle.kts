@@ -30,9 +30,9 @@ android {
 
 dependencies {
     implementation(project(":core:databinding"))
-    implementation(project(":core:ui:view"))
+    implementation(project(":core:ui"))
     implementation(project(":feature:main"))
-    implementation(project(":shared"))
+    implementation(project(":web3core"))
 
     implementation(Dependencies.AndroidX.appcompat)
     implementation(Dependencies.AndroidX.constraintLayout)
