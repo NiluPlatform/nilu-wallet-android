@@ -12,10 +12,9 @@ repositories {
     google()
     jcenter()
     mavenCentral()
-    maven {
-        url = uri("https://dl.bintray.com/kotlin/kotlin-eap")
-    }
+    maven { url = uri("https://dl.bintray.com/kotlin/kotlin-eap") }
 }
+
 kotlin {
     android()
     ios {
@@ -105,102 +104,3 @@ val packForXcode by tasks.creating(Sync::class) {
     into(targetDir)
 }
 tasks.getByName("build").dependsOn(packForXcode)
-/*plugins {
-    kotlin("multiplatform")
-    id("com.android.library")
-    id("kotlin-android-extensions")
-}
-
-repositories {
-    gradlePluginPortal()
-    google()
-    jcenter()
-    mavenCentral()
-}
-
-kotlin {
-    android()
-    ios {
-        binaries {
-            framework {
-                baseName = "web3core"
-            }
-        }
-    }
-    sourceSets {
-        all {
-            languageSettings.apply {
-                useExperimentalAnnotation("kotlin.RequiresOptIn")
-                useExperimentalAnnotation("kotlinx.coroutines.ExperimentalCoroutinesApi")
-                useExperimentalAnnotation("kotlinx.serialization.InternalSerializationApi")
-            }
-        }
-        val commonMain by getting {
-            dependencies {
-                api("org.jetbrains.kotlin:kotlin-stdlib-common")
-                implementation(Dependencies.web3j)
-                implementation(Dependencies.KotlinX.coroutinesCore)
-                implementation(Dependencies.KotlinX.serialization)
-            }
-        }
-        val commonTest by getting
-        val androidMain by getting {
-            dependencies {
-                api(Dependencies.AndroidX.coreKtx)
-                implementation(Dependencies.KotlinX.coroutinesAndroid)
-                implementation(Dependencies.KotlinX.coroutinesRx2)
-                implementation(Dependencies.ReactiveX.rxJava)
-            }
-        }
-        val androidTest by getting
-        val iosMain by getting
-        val iosTest by getting
-    }
-    targets.all {
-        compilations.all {
-            kotlinOptions {
-                freeCompilerArgs += listOf(
-                    "-Xuse-experimental=kotlin.ExperimentalUnsignedTypes",
-                    "-Xuse-experimental=kotlin.ExperimentalStdlibApi",
-                    "-Xopt-in=kotlin.time.ExperimentalTime",
-                    "-Xopt-in=kotlin.RequiresOptIn"
-                )
-            }
-        }
-    }
-}
-
-android {
-    compileSdkVersion(Config.Android.compileSdkVersion)
-    defaultConfig {
-        minSdkVersion(Config.Android.minSdkVersion)
-        targetSdkVersion(Config.Android.targetSdkVersion)
-        versionCode = Config.Android.versionCode
-        versionName = Config.Android.versionName
-    }
-    compileOptions {
-        sourceCompatibility(JavaVersion.VERSION_1_8)
-        targetCompatibility(JavaVersion.VERSION_1_8)
-    }
-    packagingOptions {
-        packagingOptions {
-            exclude(".readme")
-            exclude("LICENSE.txt")
-            exclude("META-INF/LICENSE.txt")
-            exclude("META-INF/MANIFEST.MF")
-            exclude("META-INF/NOTICE.txt")
-            exclude("META-INF/maven/com.google.guava/guava/pom.properties")
-            exclude("META-INF/maven/com.google.guava/guava/pom.xml")
-            exclude("META-INF/rxjava.properties")
-            exclude("META-INF/*.kotlin_module")
-        }
-    }
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    sourceSets["main"].java.srcDirs("src/androidMain/kotlin")
-    sourceSets["main"].res.srcDirs("src/androidMain/res")
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
-    }
-}*/

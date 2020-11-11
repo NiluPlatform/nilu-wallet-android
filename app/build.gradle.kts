@@ -29,8 +29,14 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:base"))
     implementation(project(":core:databinding"))
+    implementation(project(":core:thread"))
     implementation(project(":core:ui"))
+    implementation(project(":core:wallets"))
+    implementation(project(":data"))
+    implementation(project(":data-android"))
+    implementation(project(":domain"))
     implementation(project(":feature:main"))
     implementation(project(":web3core"))
 

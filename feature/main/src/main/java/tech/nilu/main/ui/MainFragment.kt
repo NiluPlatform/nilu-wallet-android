@@ -18,7 +18,9 @@ class MainFragment : BindableFragment<FragmentMainBinding>() {
         savedInstanceState: Bundle?
     ): FragmentMainBinding = FragmentMainBinding.inflate(inflater, container, false)
 
-    override fun onViewCreated(binding: FragmentMainBinding, savedInstanceState: Bundle?) {}
+    override fun onViewCreated(binding: FragmentMainBinding, savedInstanceState: Bundle?) {
+        viewModel.onInit()
+    }
 
     companion object {
         fun newInstance(): MainFragment = MainFragment().apply { }

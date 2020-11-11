@@ -15,6 +15,7 @@ object Dependencies {
 
     object AndroidX {
         const val appcompat = "androidx.appcompat:appcompat:1.3.0-alpha02"
+        const val collection = "androidx.collection:collection-ktx:1.1.0"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.0.1"
         const val coreKtx = "androidx.core:core-ktx:1.5.0-alpha03"
 
@@ -55,6 +56,7 @@ object Dependencies {
         private const val version = "1.4.10"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
         const val serialization = "org.jetbrains.kotlin:kotlin-serialization:$version"
+        const val stdlibJdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"
     }
 
     object KotlinX {
