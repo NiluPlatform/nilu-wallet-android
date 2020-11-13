@@ -37,6 +37,14 @@ object Dependencies {
             const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:$version"
             const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$version"
         }
+
+        object Room {
+            private const val version = "2.3.0-alpha03"
+            const val common = "androidx.room:room-common:$version"
+            const val compiler = "androidx.room:room-compiler:$version"
+            const val ktx = "androidx.room:room-ktx:$version"
+            const val runtime = "androidx.room:room-runtime:$version"
+        }
     }
 
     object Dagger {

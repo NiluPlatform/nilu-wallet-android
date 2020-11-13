@@ -7,6 +7,7 @@ import tech.nilu.base.result.Result
 import tech.nilu.base.result.Success
 
 abstract class UseCase<in P, R>(private val dispatcher: CoroutineDispatcher) {
+
     suspend operator fun invoke(params: P): Result<R> = try {
         withContext(dispatcher) {
             val result = execute(params)

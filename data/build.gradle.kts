@@ -10,11 +10,13 @@ dependencies {
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
+    implementation(Dependencies.web3j)
+    api(Dependencies.AndroidX.Room.common)
+    implementation(Dependencies.Kotlin.stdlibJdk8)
+    api(Dependencies.KotlinX.coroutinesCore)
+
     implementation(Dependencies.Hilt.hilt)
     kapt(Dependencies.Hilt.compiler)
-
-    implementation(Dependencies.web3j)
-    implementation(Dependencies.Kotlin.stdlibJdk8)
 }
 
 repositories {
