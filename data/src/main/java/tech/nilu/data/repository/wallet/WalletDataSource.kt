@@ -1,18 +1,29 @@
 package tech.nilu.data.repository.wallet
 
-import kotlinx.coroutines.flow.Flow
-import tech.nilu.data.dao.NetworkDao
-import tech.nilu.data.entity.Network
-import tech.nilu.data.model.Wallet
+import tech.nilu.data.dao.WalletDao
+import tech.nilu.data.entity.Wallet
 import javax.inject.Inject
 
 class WalletDataSource @Inject constructor(
-    private val networkDao: NetworkDao
+    private val dao: WalletDao
 ) {
 
-    fun getWallet(id: Long): Wallet = Wallet(id)
+    suspend fun add(wallet: Wallet) =
+        dao.insert(wallet)
 
-    suspend fun getNetwork(id: Long): Network = networkDao.getNetwork(id)
+    suspend fun getWallet(id: Long) =
+        dao.getWallet(id)
 
-    fun getActiveNetwork(): Flow<Network> = networkDao.getActiveNetwork()
+    suspend fun getWallets(networkId: Long) =
+        dao.getWallets(networkId)
+
+    fun getWalletsObservable(networkId: Long) =
+        dao.getWalletsObservable(networkId)
+
+    suspend fun update(wallet: Wallet) =
+        dao.update(wallet)
+
+    suspend fun delete(wallet: Wallet) {
+        dao.delete(wallet)
+    }
 }

@@ -12,6 +12,6 @@ class GetWalletUseCase @Inject constructor(
 ) : UseCase<Long, WalletObject>(dispatcher.io) {
 
     override suspend fun execute(params: Long): WalletObject {
-        return repository.getWallet(id = params)
+        return WalletObject(1)
     }
 }

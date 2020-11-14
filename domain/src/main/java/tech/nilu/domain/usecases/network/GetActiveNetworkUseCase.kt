@@ -1,7 +1,7 @@
 package tech.nilu.domain.usecases.network
 
 import kotlinx.coroutines.flow.Flow
-import tech.nilu.base.extension.mapSuccess
+import kotlinx.coroutines.flow.flow
 import tech.nilu.base.result.Result
 import tech.nilu.domain.FlowUseCase
 import tech.nilu.domain.model.NetworkObject
@@ -15,7 +15,6 @@ class GetActiveNetworkUseCase @Inject constructor(
 ) : FlowUseCase<Unit, NetworkObject>(dispatcher.io) {
 
     override fun execute(params: Unit): Flow<Result<NetworkObject>> {
-        return repository.getActiveNetwork()
-            .mapSuccess()
+        return flow {}
     }
 }

@@ -9,9 +9,7 @@ import javax.inject.Inject
 class GetNetworkUseCase @Inject constructor(
     private val repository: WalletRepository,
     dispatcher: Dispatcher
-) : UseCase<Long, NetworkObject>(dispatcher.io) {
+) : UseCase<Long, NetworkObject?>(dispatcher.io) {
 
-    override suspend fun execute(params: Long): NetworkObject {
-        return repository.getNetwork(id = params)
-    }
+    override suspend fun execute(params: Long): NetworkObject? = null
 }

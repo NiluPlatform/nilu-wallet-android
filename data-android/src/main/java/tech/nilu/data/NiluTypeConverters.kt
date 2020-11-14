@@ -16,9 +16,9 @@ object NiluTypeConverters {
 
     @TypeConverter
     @JvmStatic
-    fun fromTimestamp(value: Long?) = value?.let { Date(it) }
+    fun fromDate(value: Date?) = value?.time
 
     @TypeConverter
     @JvmStatic
-    fun toTimestamp(value: Date?) = value?.time
+    fun toDate(value: Long?) = value?.let { Date(it) }
 }
