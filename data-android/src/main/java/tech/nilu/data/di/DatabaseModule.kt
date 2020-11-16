@@ -20,7 +20,7 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideDatabase(app: Application): NiluRoomDatabase =
+    fun provide(app: Application): NiluRoomDatabase =
         Room.databaseBuilder(app, NiluRoomDatabase::class.java, "nilu.db")
             .addCallback(object : RoomDatabase.Callback() {
                 override fun onCreate(db: SupportSQLiteDatabase) {
@@ -47,7 +47,7 @@ object DaoModule {
 
 @InstallIn(ApplicationComponent::class)
 @Module
-abstract class TransactionModule {
+abstract class DatabaseTransactionModule {
 
     @Binds
     abstract fun bindNiluDatabase(database: NiluRoomDatabase): NiluDatabase

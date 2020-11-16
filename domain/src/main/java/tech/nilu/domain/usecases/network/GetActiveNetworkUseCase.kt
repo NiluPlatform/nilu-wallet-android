@@ -4,7 +4,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import tech.nilu.base.result.Result
 import tech.nilu.domain.FlowUseCase
-import tech.nilu.domain.model.NetworkObject
+import tech.nilu.domain.entity.NetworkObject
 import tech.nilu.domain.repository.WalletRepository
 import tech.nilu.thread.Dispatcher
 import javax.inject.Inject

@@ -21,7 +21,8 @@ include(
     ":core:databinding",
     ":core:thread",
     ":core:ui",
-    ":core:wallets"
+    ":core:wallets",
+    ":core:web3j"
 )
 include(":data")
 include(":data-android")

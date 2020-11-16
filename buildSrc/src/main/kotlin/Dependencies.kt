@@ -83,6 +83,12 @@ object Dependencies {
         const val material = "com.google.android.material:material:1.3.0-alpha02"
     }
 
+    object OkHttp {
+        private const val version = "4.9.0"
+        const val okHttp = "com.squareup.okhttp3:okhttp:$version"
+        const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$version"
+    }
+
     object ReactiveX {
         const val rxJava = "io.reactivex.rxjava2:rxjava:2.2.20"
         const val rxAndroid = "io.reactivex.rxjava2:rxandroid:2.1.1"

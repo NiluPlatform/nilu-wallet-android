@@ -1,4 +1,4 @@
-package tech.nilu.domain.model
+package tech.nilu.domain.entity
 
 data class NetworkObject(
     override val id: Long

@@ -6,6 +6,7 @@ plugins {
 dependencies {
     implementation(project(":core:base"))
     implementation(project(":core:thread"))
+    api(project(":core:web3j"))
     api(project(":data"))
     api(project(":domain"))
 
