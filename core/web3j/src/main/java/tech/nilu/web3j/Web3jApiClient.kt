@@ -1,18 +1,21 @@
 package tech.nilu.web3j
 
 import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.web3j.protocol.Web3j
+import org.web3j.protocol.core.DefaultBlockParameterName
 import org.web3j.protocol.core.methods.response.TransactionReceipt
 import org.web3j.protocol.http.HttpService
 import org.web3j.tx.TransactionManager
 import org.web3j.tx.response.PollingTransactionReceiptProcessor
 import tech.nilu.data.dao.NetworkDao
 import tech.nilu.web3j.entity.TransactionDetails
+import java.math.BigInteger
 import java.net.Proxy
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
@@ -55,5 +58,28 @@ class Web3jApiClient @Inject constructor(
             TransactionManager.DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH
         )
         emit(processor.waitForTransactionReceipt(hash))
+    }
+
+    suspend fun getBalance(address: String): BigInteger? {
+        val web3j = checkNotNull(getWeb3j())
+        return web3j.ethGetBalance(address, DefaultBlockParameterName.LATEST).send().balance
+    }
+
+    suspend fun getBalances(addresses: List<String>): List<BigInteger> {
+        val web3j = checkNotNull(getWeb3j())
+        return coroutineScope {
+            addresses.map { async { web3j.ethGetBalance(it, DefaultBlockParameterName.LATEST).send() } }
+                .awaitAll()
+                .map { it.balance }
+        }
+    }
+
+    suspend fun getTotalBalance(addresses: List<String>): BigInteger {
+        val web3j = checkNotNull(getWeb3j())
+        return coroutineScope {
+            addresses.map { async { web3j.ethGetBalance(it, DefaultBlockParameterName.LATEST).send() } }
+                .awaitAll()
+                .sumOf { it.balance }
+        }
     }
 }
