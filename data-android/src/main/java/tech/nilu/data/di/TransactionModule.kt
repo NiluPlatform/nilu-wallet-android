@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import tech.nilu.domain.repository.TransactionRepository
-import tech.nilu.web3j.repository.TransactionRepositoryImpl
+import tech.nilu.web3j.repository.transaction.TransactionRepositoryImpl
 import javax.inject.Singleton
 
 @InstallIn(ApplicationComponent::class)

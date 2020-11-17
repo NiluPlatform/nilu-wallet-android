@@ -5,7 +5,7 @@ import tech.nilu.domain.entity.transaction.TransactionDetailsObject
 import tech.nilu.web3j.entity.TransactionDetails
 import javax.inject.Inject
 
-class TransactionDetailsToTransactionDetailsObject @Inject constructor() : Mapper<TransactionDetails, TransactionDetailsObject> {
+class TransactionDetailsMapper @Inject constructor() : Mapper<TransactionDetails, TransactionDetailsObject> {
 
     override suspend fun map(from: TransactionDetails): TransactionDetailsObject = TransactionDetailsObject(
         nonce = from.transaction?.nonce,

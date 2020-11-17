@@ -34,6 +34,7 @@ dependencies {
     implementation(project(":core:thread"))
     implementation(project(":core:ui"))
     implementation(project(":core:wallets"))
+    implementation(project(":core:web3j"))
     implementation(project(":data"))
     implementation(project(":data-android"))
     implementation(project(":domain"))

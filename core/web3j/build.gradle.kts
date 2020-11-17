@@ -9,6 +9,7 @@ dependencies {
     api(project(":domain"))
 
     implementation(Dependencies.web3j)
+    implementation(Dependencies.AndroidX.collection)
     implementation(Dependencies.KotlinX.coroutinesCore)
     implementation(Dependencies.OkHttp.okHttp)
     implementation(Dependencies.OkHttp.loggingInterceptor)

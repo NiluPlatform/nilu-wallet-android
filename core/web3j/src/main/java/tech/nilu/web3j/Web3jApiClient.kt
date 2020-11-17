@@ -2,10 +2,15 @@ package tech.nilu.web3j
 
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.web3j.protocol.Web3j
+import org.web3j.protocol.core.methods.response.TransactionReceipt
 import org.web3j.protocol.http.HttpService
+import org.web3j.tx.TransactionManager
+import org.web3j.tx.response.PollingTransactionReceiptProcessor
 import tech.nilu.data.dao.NetworkDao
 import tech.nilu.web3j.entity.TransactionDetails
 import java.net.Proxy
@@ -40,5 +45,15 @@ class Web3jApiClient @Inject constructor(
             val receipt = async { web3j.ethGetTransactionReceipt(hash).send() }
             TransactionDetails(transaction.await().result, receipt.await().result)
         }
+    }
+
+    fun getTransactionReceipt(hash: String): Flow<TransactionReceipt> = flow {
+        val web3j = checkNotNull(getWeb3j())
+        val processor = PollingTransactionReceiptProcessor(
+            web3j,
+            TransactionManager.DEFAULT_POLLING_FREQUENCY,
+            TransactionManager.DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH
+        )
+        emit(processor.waitForTransactionReceipt(hash))
     }
 }
