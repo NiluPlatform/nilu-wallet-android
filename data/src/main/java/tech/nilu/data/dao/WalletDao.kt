@@ -11,6 +11,9 @@ abstract class WalletDao : BaseDao<Wallet>() {
     @Query("SELECT * FROM Wallet WHERE id = :id")
     abstract suspend fun getWallet(id: Long): Wallet?
 
+    @Query("SELECT * FROM Wallet WHERE id = :id")
+    abstract fun getWalletObservable(id: Long): Flow<Wallet>
+
     @Query("SELECT * FROM Wallet WHERE networkId = :networkId ORDER BY id")
     abstract suspend fun getWallets(networkId: Long): List<Wallet>
 

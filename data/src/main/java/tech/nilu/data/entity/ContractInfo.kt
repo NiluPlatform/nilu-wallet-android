@@ -14,11 +14,11 @@ data class ContractInfo(
     val name: String,
     val image: String,
     val types: String,
-    val symbol: String? = null
+    var symbol: String? = null
 ) : BaseEntity {
 
     @Ignore
-    val balance: BigInteger = BigInteger.ZERO
+    var balance: BigInteger = BigInteger.ZERO
 
     @Ignore
     var tokenName: String? = null

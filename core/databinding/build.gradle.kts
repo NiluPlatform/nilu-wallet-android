@@ -11,8 +11,8 @@ android {
 dependencies {
     implementation(project(":core:ui"))
 
-    api(Dependencies.Dagger.dagger)
+    api(Dependencies.Google.Dagger.dagger)
 
-    implementation(Dependencies.Hilt.hilt)
-    kapt(Dependencies.Hilt.compiler)
+    implementation(Dependencies.Google.Hilt.hilt)
+    kapt(Dependencies.Google.Hilt.compiler)
 }

@@ -42,7 +42,19 @@ object DatabaseModule {
 object DaoModule {
 
     @Provides
+    fun provideContractInfoDao(db: NiluDatabase) = db.contractInfoDao()
+
+    @Provides
+    fun provideDestinationDao(db: NiluDatabase) = db.destinationDao()
+
+    @Provides
     fun provideNetworkDao(db: NiluDatabase) = db.networkDao()
+
+    @Provides
+    fun provideTransactionDao(db: NiluDatabase) = db.transactionDao()
+
+    @Provides
+    fun provideWalletDao(db: NiluDatabase) = db.walletDao()
 }
 
 @InstallIn(ApplicationComponent::class)

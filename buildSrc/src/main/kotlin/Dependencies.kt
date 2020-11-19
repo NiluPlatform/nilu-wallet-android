@@ -11,6 +11,7 @@ object Config {
 
 object Dependencies {
     const val androidGradlePlugin = "com.android.tools.build:gradle:4.1.0"
+    const val spongyCastle = "com.madgag.spongycastle:core:1.58.0.0"
     const val web3j = "org.web3j:core:4.6.0-android"
 
     object AndroidX {
@@ -47,17 +48,21 @@ object Dependencies {
         }
     }
 
-    object Dagger {
-        private const val version = "2.29.1"
-        const val dagger = "com.google.dagger:dagger:$version"
-        const val compiler = "com.google.dagger:dagger-compiler:$version"
-    }
+    object Google {
+        const val protocolBuffers = "com.google.protobuf:protobuf-java:3.11.0"
 
-    object Hilt {
-        private const val version = "2.29.1-alpha"
-        const val hilt = "com.google.dagger:hilt-android:$version"
-        const val compiler = "com.google.dagger:hilt-android-compiler:$version"
-        const val gradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:$version"
+        object Dagger {
+            private const val version = "2.29.1"
+            const val dagger = "com.google.dagger:dagger:$version"
+            const val compiler = "com.google.dagger:dagger-compiler:$version"
+        }
+
+        object Hilt {
+            private const val version = "2.29.1-alpha"
+            const val hilt = "com.google.dagger:hilt-android:$version"
+            const val compiler = "com.google.dagger:hilt-android-compiler:$version"
+            const val gradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:$version"
+        }
     }
 
     object Kotlin {

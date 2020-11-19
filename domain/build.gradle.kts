@@ -10,11 +10,12 @@ dependencies {
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    implementation(Dependencies.Hilt.hilt)
-    kapt(Dependencies.Hilt.compiler)
-
+    implementation(Dependencies.web3j)
     implementation(Dependencies.Kotlin.stdlibJdk8)
     implementation(Dependencies.KotlinX.coroutinesCore)
+
+    implementation(Dependencies.Google.Hilt.hilt)
+    kapt(Dependencies.Google.Hilt.compiler)
 }
 
 repositories {

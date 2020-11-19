@@ -13,6 +13,6 @@ data class Wallet(
     @PrimaryKey(autoGenerate = true) override val id: Long,
     val name: String,
     val path: String,
-    val mnemonic: String,
+    val mnemonic: String?,
     val networkId: Long
 ) : BaseEntity

@@ -8,12 +8,14 @@ dependencies {
     implementation(project(":data"))
     api(project(":domain"))
 
+    implementation(Dependencies.spongyCastle)
     implementation(Dependencies.web3j)
     implementation(Dependencies.AndroidX.collection)
+    implementation(Dependencies.Google.protocolBuffers)
     implementation(Dependencies.KotlinX.coroutinesCore)
     implementation(Dependencies.OkHttp.okHttp)
     implementation(Dependencies.OkHttp.loggingInterceptor)
 
-    implementation(Dependencies.Hilt.hilt)
-    kapt(Dependencies.Hilt.compiler)
+    implementation(Dependencies.Google.Hilt.hilt)
+    kapt(Dependencies.Google.Hilt.compiler)
 }

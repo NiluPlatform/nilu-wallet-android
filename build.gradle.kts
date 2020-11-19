@@ -8,7 +8,7 @@ buildscript {
     dependencies {
         classpath(Dependencies.Kotlin.gradlePlugin)
         classpath(Dependencies.androidGradlePlugin)
-        classpath(Dependencies.Hilt.gradlePlugin)
+        classpath(Dependencies.Google.Hilt.gradlePlugin)
         classpath(Dependencies.Kotlin.serialization)
     }
 }

@@ -7,8 +7,10 @@ import javax.inject.Inject
 
 class TransactionReceiptMapper @Inject constructor() : Mapper<TransactionReceipt, ReceiptObject> {
 
-    override suspend fun map(from: TransactionReceipt): ReceiptObject = ReceiptObject(
-        from = from.from,
-        to = from.to
-    )
+    override suspend fun map(from: TransactionReceipt): ReceiptObject = with(from) {
+        ReceiptObject(
+            from = this.from,
+            to = this.to
+        )
+    }
 }

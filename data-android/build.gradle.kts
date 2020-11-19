@@ -14,6 +14,6 @@ dependencies {
     api(Dependencies.AndroidX.Room.ktx)
     kapt(Dependencies.AndroidX.Room.compiler)
 
-    implementation(Dependencies.Hilt.hilt)
-    kapt(Dependencies.Hilt.compiler)
+    implementation(Dependencies.Google.Hilt.hilt)
+    kapt(Dependencies.Google.Hilt.compiler)
 }

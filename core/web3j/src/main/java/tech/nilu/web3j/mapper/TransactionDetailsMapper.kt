@@ -7,13 +7,15 @@ import javax.inject.Inject
 
 class TransactionDetailsMapper @Inject constructor() : Mapper<TransactionDetails, TransactionDetailsObject> {
 
-    override suspend fun map(from: TransactionDetails): TransactionDetailsObject = TransactionDetailsObject(
-        nonce = from.transaction?.nonce,
-        from = from.transaction?.from,
-        to = from.transaction?.to,
-        value = from.transaction?.value,
-        gasPrice = from.transaction?.gasPrice,
-        gas = from.transaction?.gas,
-        blockNumber = from.receipt?.blockNumber
-    )
+    override suspend fun map(from: TransactionDetails): TransactionDetailsObject = with(from) {
+        TransactionDetailsObject(
+            nonce = transaction?.nonce,
+            from = transaction?.from,
+            to = transaction?.to,
+            value = transaction?.value,
+            gasPrice = transaction?.gasPrice,
+            gas = transaction?.gas,
+            blockNumber = receipt?.blockNumber
+        )
+    }
 }

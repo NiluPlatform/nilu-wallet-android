@@ -9,9 +9,9 @@ dependencies {
     implementation(Dependencies.AndroidX.Fragment.fragment)
     implementation(Dependencies.AndroidX.Fragment.fragmentKtx)
 
-    api(Dependencies.Dagger.dagger)
+    api(Dependencies.Google.Dagger.dagger)
 
-    implementation(Dependencies.Hilt.hilt)
+    implementation(Dependencies.Google.Hilt.hilt)
 
     api(Dependencies.MDC.material)
 }

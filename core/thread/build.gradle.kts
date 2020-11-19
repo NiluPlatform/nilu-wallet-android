@@ -7,8 +7,8 @@ plugins {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    implementation(Dependencies.Hilt.hilt)
-    kapt(Dependencies.Hilt.compiler)
+    implementation(Dependencies.Google.Hilt.hilt)
+    kapt(Dependencies.Google.Hilt.compiler)
 
     implementation(Dependencies.Kotlin.stdlibJdk8)
     api(Dependencies.KotlinX.coroutinesCore)

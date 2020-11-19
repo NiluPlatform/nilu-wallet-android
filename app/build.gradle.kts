@@ -45,9 +45,9 @@ dependencies {
     implementation(Dependencies.AndroidX.coreKtx)
     implementation(Dependencies.AndroidX.Fragment.fragmentKtx)
 
-    implementation(Dependencies.Hilt.hilt)
+    implementation(Dependencies.Google.Hilt.hilt)
     implementation(Dependencies.AndroidX.Hilt.lifecycleViewModel)
-    kapt(Dependencies.Hilt.compiler)
+    kapt(Dependencies.Google.Hilt.compiler)
     kapt(Dependencies.AndroidX.Hilt.compiler)
 
     implementation(Dependencies.MDC.material)

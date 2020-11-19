@@ -15,8 +15,8 @@ dependencies {
     implementation(Dependencies.Kotlin.stdlibJdk8)
     api(Dependencies.KotlinX.coroutinesCore)
 
-    implementation(Dependencies.Hilt.hilt)
-    kapt(Dependencies.Hilt.compiler)
+    implementation(Dependencies.Google.Hilt.hilt)
+    kapt(Dependencies.Google.Hilt.compiler)
 }
 
 repositories {
