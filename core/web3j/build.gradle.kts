@@ -13,6 +13,7 @@ dependencies {
     implementation(Dependencies.AndroidX.collection)
     implementation(Dependencies.Google.protocolBuffers)
     implementation(Dependencies.KotlinX.coroutinesCore)
+    implementation(Dependencies.KotlinX.coroutinesRx2)
     implementation(Dependencies.OkHttp.okHttp)
     implementation(Dependencies.OkHttp.loggingInterceptor)
 

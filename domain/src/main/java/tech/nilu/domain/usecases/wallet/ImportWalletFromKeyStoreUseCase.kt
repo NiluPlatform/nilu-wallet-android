@@ -6,10 +6,6 @@ import tech.nilu.thread.Dispatcher
 import java.io.File
 import javax.inject.Inject
 
-/**
- * Created by navid.eghbali on 11/18/20.
- */
-
 class ImportWalletFromKeyStoreUseCase @Inject constructor(
     private val repository: WalletRepository,
     dispatcher: Dispatcher

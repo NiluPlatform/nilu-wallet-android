@@ -2,10 +2,6 @@ package tech.nilu.web3j.crypto
 
 import org.web3j.crypto.Hash
 
-/**
- * Created by navid.eghbali on 11/17/20.
- */
-
 object Eip55 {
 
     fun convertToEip55Address(addr: String): String {

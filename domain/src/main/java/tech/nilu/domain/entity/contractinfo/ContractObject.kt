@@ -3,10 +3,6 @@ package tech.nilu.domain.entity.contractinfo
 import tech.nilu.domain.entity.BaseObject
 import java.math.BigInteger
 
-/**
- * Created by navid.eghbali on 11/18/20.
- */
-
 data class ContractObject(
     override val id: Long,
     val walletId: Long,

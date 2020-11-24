@@ -5,10 +5,6 @@ import tech.nilu.domain.entity.BaseObject
 import tech.nilu.domain.entity.contractinfo.ContractObject
 import java.math.BigInteger
 
-/**
- * Created by navid.eghbali on 11/18/20.
- */
-
 data class WalletContractsObject(
     override val id: Long,
     val name: String,

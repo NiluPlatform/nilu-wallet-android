@@ -5,10 +5,6 @@ import tech.nilu.data.entity.ContractInfo
 import tech.nilu.domain.entity.contractinfo.ContractObject
 import javax.inject.Inject
 
-/**
- * Created by navid.eghbali on 11/18/20.
- */
-
 class ContractInfoMapper @Inject constructor() : Mapper<ContractInfo, ContractObject> {
 
     override suspend fun map(from: ContractInfo): ContractObject = with(from) {

@@ -7,10 +7,6 @@ import tech.nilu.thread.Dispatcher
 import java.io.File
 import javax.inject.Inject
 
-/**
- * Created by navid.eghbali on 11/19/20.
- */
-
 class GetAllWalletsWithContractsUseCase @Inject constructor(
     private val repository: WalletRepository,
     dispatcher: Dispatcher

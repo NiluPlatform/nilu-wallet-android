@@ -21,5 +21,8 @@ object Web3jModule {
     ): WalletSdk = WalletSdk(walletDao, contractInfoDao)
 
     @Provides
-    fun provideWeb3jApiClient(networkDao: NetworkDao): Web3jApiClient = Web3jApiClient(networkDao)
+    fun provideWeb3jApiClient(
+        networkDao: NetworkDao,
+        walletSdk: WalletSdk
+    ): Web3jApiClient = Web3jApiClient(networkDao, walletSdk)
 }

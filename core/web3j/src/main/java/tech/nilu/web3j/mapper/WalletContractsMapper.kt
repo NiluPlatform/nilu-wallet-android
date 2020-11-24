@@ -6,10 +6,6 @@ import tech.nilu.domain.entity.wallet.WalletContractsObject
 import tech.nilu.web3j.entity.WalletContracts
 import javax.inject.Inject
 
-/**
- * Created by navid.eghbali on 11/18/20.
- */
-
 class WalletContractsMapper @Inject constructor(
     private val contractsMapper: ContractInfoMapper
 ) : Mapper<WalletContracts, WalletContractsObject> {
