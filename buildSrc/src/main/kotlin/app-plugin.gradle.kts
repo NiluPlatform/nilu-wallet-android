@@ -2,7 +2,6 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
-    id("kotlin-android-extensions")
 }
 
 repositories {
@@ -50,9 +49,6 @@ android {
             exclude("META-INF/rxjava.properties")
             exclude("META-INF/*.kotlin_module")
         }
-    }
-    androidExtensions {
-        isExperimental = true
     }
     buildFeatures {
         dataBinding = true

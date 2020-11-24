@@ -1,13 +1,9 @@
 plugins {
     id("library-plugin")
-    id("kotlin-android-extensions")
 }
 
 @Suppress("UnstableApiUsage")
 android {
-    androidExtensions {
-        isExperimental = true
-    }
     buildFeatures {
         dataBinding = true
     }

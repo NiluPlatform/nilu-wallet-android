@@ -10,7 +10,7 @@ object Config {
 }
 
 object Dependencies {
-    const val androidGradlePlugin = "com.android.tools.build:gradle:4.1.0"
+    const val androidGradlePlugin = "com.android.tools.build:gradle:4.1.1"
     const val spongyCastle = "com.madgag.spongycastle:core:1.58.0.0"
     const val web3j = "org.web3j:core:4.6.0-android"
 
@@ -66,7 +66,7 @@ object Dependencies {
     }
 
     object Kotlin {
-        private const val version = "1.4.10"
+        private const val version = "1.4.20"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
         const val serialization = "org.jetbrains.kotlin:kotlin-serialization:$version"
         const val stdlibJdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"
