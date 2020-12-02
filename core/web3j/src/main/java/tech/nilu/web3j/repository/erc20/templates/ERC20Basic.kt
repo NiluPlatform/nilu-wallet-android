@@ -1,6 +1,6 @@
 package tech.nilu.web3j.repository.erc20.templates
 
-import kotlinx.coroutines.flow.Flow
+import io.reactivex.Flowable
 import org.web3j.protocol.core.DefaultBlockParameter
 import org.web3j.protocol.core.RemoteCall
 import org.web3j.protocol.core.methods.response.TransactionReceipt
@@ -26,7 +26,7 @@ interface ERC20Basic {
 
     fun getTransferEvents(transactionReceipt: TransactionReceipt): List<TransferEvent.Response>
 
-    fun transferEventObservable(startBlock: DefaultBlockParameter, endBlock: DefaultBlockParameter): Flow<TransferEvent.Response>
+    fun transferEventFlowable(startBlock: DefaultBlockParameter, endBlock: DefaultBlockParameter): Flowable<TransferEvent.Response>
 
     fun createTokens(weiValue: BigInteger): RemoteCall<TransactionReceipt>
 

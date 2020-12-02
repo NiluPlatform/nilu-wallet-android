@@ -5,9 +5,11 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import tech.nilu.domain.usecases.token.GetDeploymentFeeUseCase
 
 class MainViewModel @ViewModelInject constructor(
-    private val app: Application
+    app: Application,
+    private val getDeploymentFeeUseCase: GetDeploymentFeeUseCase
 ) : AndroidViewModel(app) {
 
     fun onInit() {

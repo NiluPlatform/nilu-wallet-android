@@ -22,8 +22,8 @@ class TransferRepositoryImpl @Inject constructor(
         contractAddress: String?,
         data: String?
     ): EstimationObject? = when {
-        contractAddress != null -> client.getTransferFee(contractAddress, credentials, toAddress, value)?.let { estimateValuesMapper.map(it) }
-        data != null -> client.getTransferFee(credentials, toAddress, value, data)?.let { estimateValuesMapper.map(it) }
+        contractAddress != null -> estimateValuesMapper.map(client.getTransferFee(contractAddress, credentials, toAddress, value))
+        data != null -> estimateValuesMapper.map(client.getTransferFee(credentials, toAddress, value, data))
         else -> null
     }
 
