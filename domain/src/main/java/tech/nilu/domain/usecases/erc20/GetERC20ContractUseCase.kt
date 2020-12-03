@@ -6,10 +6,10 @@ import tech.nilu.domain.repository.ERC20Repository
 import tech.nilu.thread.Dispatcher
 import javax.inject.Inject
 
-class GetERC20Contract @Inject constructor(
+class GetERC20ContractUseCase @Inject constructor(
     private val repository: ERC20Repository,
     dispatcher: Dispatcher
-) : UseCase<GetERC20Contract.Params, ContractObject>(dispatcher.io) {
+) : UseCase<GetERC20ContractUseCase.Params, ContractObject>(dispatcher.io) {
 
     override suspend fun execute(params: Params): ContractObject = repository.fetchERC20Contract(
         walletId = params.walletId,

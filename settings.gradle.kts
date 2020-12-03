@@ -20,11 +20,13 @@ include(
     ":core:base",
     ":core:databinding",
     ":core:thread",
-    ":core:ui",
-    ":core:web3j"
+    ":core:ui"
 )
-include(":data")
-include(":data-android")
+include(
+    ":data",
+    ":data-android",
+    ":data-web3j"
+)
 include(":domain")
 include(
     ":feature:main"

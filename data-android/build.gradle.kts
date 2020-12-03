@@ -6,8 +6,8 @@ plugins {
 dependencies {
     implementation(project(":core:base"))
     implementation(project(":core:thread"))
-    api(project(":core:web3j"))
     api(project(":data"))
+    api(project(":data-web3j"))
     api(project(":domain"))
 
     api(Dependencies.AndroidX.Room.runtime)

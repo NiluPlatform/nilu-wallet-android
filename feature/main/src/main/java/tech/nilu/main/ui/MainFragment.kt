@@ -2,6 +2,7 @@ package tech.nilu.main.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,6 +21,12 @@ class MainFragment : BindableFragment<FragmentMainBinding>() {
 
     override fun onViewCreated(binding: FragmentMainBinding, savedInstanceState: Bundle?) {
         viewModel.onInit()
+        viewModel.activeNetwork.observe(viewLifecycleOwner) { println(it) }
+        viewModel.wallets.observe(viewLifecycleOwner) { println(it) }
+        viewModel.balance.observe(viewLifecycleOwner) {
+            println(it)
+            binding.progressBar.visibility = View.GONE
+        }
     }
 
     companion object {

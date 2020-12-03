@@ -16,7 +16,7 @@ abstract class BindableFragment<V : ViewDataBinding> : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = createBinding(inflater, container, savedInstanceState).also { binding = it }.root
+    ): View = createBinding(inflater, container, savedInstanceState).also { binding = it }.root
 
     final override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

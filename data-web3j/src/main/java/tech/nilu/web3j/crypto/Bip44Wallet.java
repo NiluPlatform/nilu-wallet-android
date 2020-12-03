@@ -27,14 +27,14 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Bip44Wallet {
     private static final int MAX_CHILD_DERIVATION_ATTEMPTS = 100;
     private static final X9ECParameters curve = SECNamedCurves.getByName("secp256k1");
-    private static BigInteger RAND_INT = new BigInteger(256, new SecureRandom());
+    private static final BigInteger RAND_INT = new BigInteger(256, new SecureRandom());
 
-    private HDSeed seed;
+    private final HDSeed seed;
+    private final String mnemonic;
+    private final HDKeyChain chain;
+    private final byte[] mnemonicBytes;
+    private final SecureRandom secureRandom = new SecureRandom();
     private String filename;
-    private String mnemonic;
-    private HDKeyChain chain;
-    private byte[] mnemonicBytes;
-    private SecureRandom secureRandom = new SecureRandom();
 
     public Bip44Wallet(String pass) {
         this(Bip39Locale.ENGLISH, pass);
@@ -638,8 +638,8 @@ public class Bip44Wallet {
         private final ReentrantLock lock = new ReentrantLock();
 
         // Maps used to let us quickly look up a key given data we find in transcations or the block chain.
-        private LinkedHashMap<ByteString, ECKey> hashToKeys;
-        private LinkedHashMap<ByteString, ECKey> pubkeyToKeys;
+        private final LinkedHashMap<ByteString, ECKey> hashToKeys;
+        private final LinkedHashMap<ByteString, ECKey> pubkeyToKeys;
         private boolean isWatching;
 
         public BasicKeyChain() {
@@ -737,10 +737,10 @@ public class Bip44Wallet {
         // m / 44' / 0' / 0'
         public static final List<ChildNumber> BIP44_ACCOUNT_ZERO_PATH =
                 Arrays.asList(new ChildNumber(44, true), ChildNumber.ZERO_HARDENED, ChildNumber.ZERO_HARDENED);
-        private Hierarchy hierarchy;
-        private HDKey rootKey;
-        private HDSeed seed;
-        private BasicKeyChain basicKeyChain;
+        private final Hierarchy hierarchy;
+        private final HDKey rootKey;
+        private final HDSeed seed;
+        private final BasicKeyChain basicKeyChain;
         private HDKey externalParentKey, internalParentKey;
 
 

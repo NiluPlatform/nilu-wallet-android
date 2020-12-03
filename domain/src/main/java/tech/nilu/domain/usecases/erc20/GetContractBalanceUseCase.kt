@@ -7,10 +7,10 @@ import tech.nilu.thread.Dispatcher
 import java.math.BigInteger
 import javax.inject.Inject
 
-class GetContractBalance @Inject constructor(
+class GetContractBalanceUseCase @Inject constructor(
     private val repository: ERC20Repository,
     dispatcher: Dispatcher
-) : UseCase<GetContractBalance.Params, BigInteger?>(dispatcher.io) {
+) : UseCase<GetContractBalanceUseCase.Params, BigInteger?>(dispatcher.io) {
 
     override suspend fun execute(params: Params): BigInteger? = repository.contractBalance(
         walletId = params.walletId,
