@@ -14,6 +14,6 @@ class DestinationDataSource @Inject constructor(
     suspend fun getDestination(address: String) =
         dao.getDestination(address)
 
-    suspend fun getDestinations() =
-        dao.getDestinations()
+    fun getDestinationsObservable() =
+        dao.getDestinationsObservable()
 }

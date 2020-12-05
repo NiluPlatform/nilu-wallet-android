@@ -75,13 +75,11 @@ object Dependencies {
     object KotlinX {
         private const val coroutinesVersion = "1.4.1"
         private const val serializationVersion = "1.0.1"
-        const val coroutinesCore =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
-        const val coroutinesAndroid =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+        const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+        const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
         const val coroutinesRx2 = "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:$coroutinesVersion"
-        const val serialization =
-            "org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion"
+        const val serializationCore = "org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion"
+        const val serializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion"
     }
 
     object MDC {

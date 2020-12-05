@@ -26,3 +26,7 @@ class ContractInfoMapper @Inject constructor() : Mapper<ContractInfo, ContractOb
         )
     }
 }
+
+suspend fun List<ContractInfo>.listMap(
+    mapper: suspend (ContractInfo) -> ContractObject
+): List<ContractObject> = map { mapper(it) }

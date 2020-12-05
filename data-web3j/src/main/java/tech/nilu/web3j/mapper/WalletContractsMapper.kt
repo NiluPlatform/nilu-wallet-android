@@ -2,6 +2,7 @@ package tech.nilu.web3j.mapper
 
 import tech.nilu.base.mapper.Mapper
 import tech.nilu.data.mapper.ContractInfoMapper
+import tech.nilu.data.mapper.listMap
 import tech.nilu.domain.entity.wallet.WalletContractsObject
 import tech.nilu.web3j.entity.WalletContracts
 import javax.inject.Inject
@@ -18,8 +19,12 @@ class WalletContractsMapper @Inject constructor(
             mnemonic = wallet.mnemonic,
             networkId = wallet.networkId,
             credentials = credentials,
-            contracts = contracts.map { contractsMapper.map(it) },
+            contracts = contracts.listMap(contractsMapper::map),
             balance = balance
         )
     }
 }
+
+suspend fun List<WalletContracts>.listMap(
+    mapper: suspend (WalletContracts) -> WalletContractsObject
+): List<WalletContractsObject> = map { mapper(it) }

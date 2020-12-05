@@ -15,6 +15,11 @@ interface ERC20Repository {
         contract: ContractObject
     ): ContractObject
 
+    suspend fun fetchERC20Token(
+        walletId: Long,
+        contract: ContractObject
+    ): ContractObject
+
     suspend fun contractBalance(
         walletId: Long,
         contract: ContractObject

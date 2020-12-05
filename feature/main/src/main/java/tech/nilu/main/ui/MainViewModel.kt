@@ -11,18 +11,18 @@ import tech.nilu.domain.entity.contractinfo.ContractObject
 import tech.nilu.domain.entity.wallet.WalletContractsObject
 import tech.nilu.domain.invoke
 import tech.nilu.domain.usecases.erc20.GetContractBalanceUseCase
-import tech.nilu.domain.usecases.network.GetActiveNetworkUseCase
+import tech.nilu.domain.usecases.network.ObserveActiveNetworkUseCase
 import tech.nilu.domain.usecases.wallet.GetAllWalletsWithContractsUseCase
 
 class MainViewModel @ViewModelInject constructor(
     private val app: Application,
     private val getContractBalanceUseCase: GetContractBalanceUseCase,
     private val getAllWalletsWithContractsUseCase: GetAllWalletsWithContractsUseCase,
-    private val getActiveNetworkUseCase: GetActiveNetworkUseCase
+    private val observeActiveNetworkUseCase: ObserveActiveNetworkUseCase
 ) : AndroidViewModel(app) {
 
     val activeNetwork: LiveData<NetworkObject?> = liveData {
-        getActiveNetworkUseCase()
+        observeActiveNetworkUseCase()
             .collect { result ->
                 when (result) {
                     is Success -> emit(result.data)

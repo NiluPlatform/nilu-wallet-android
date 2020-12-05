@@ -8,5 +8,5 @@ interface TransactionRepository {
 
     suspend fun getTransactionDetails(hash: String): TransactionDetailsObject
 
-    fun getTransactionReceipt(hash: String): Flow<ReceiptObject>
+    fun observeTransactionReceipt(hash: String): Flow<ReceiptObject>
 }

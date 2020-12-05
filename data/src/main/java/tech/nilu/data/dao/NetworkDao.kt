@@ -23,6 +23,9 @@ abstract class NetworkDao : BaseDao<Network>() {
     @Query("SELECT * FROM Network")
     abstract suspend fun getNetworks(): List<Network>
 
+    @Query("SELECT * FROM Network")
+    abstract fun getNetworksObservable(): Flow<List<Network>>
+
     @Query("UPDATE Network SET active = 0")
     abstract suspend fun deactivateNetworks()
 }

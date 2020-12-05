@@ -20,7 +20,7 @@ class TransactionRepositoryImpl @Inject constructor(
         client.getTransactionDetails(hash)
     )
 
-    override fun getTransactionReceipt(hash: String): Flow<ReceiptObject> =
+    override fun observeTransactionReceipt(hash: String): Flow<ReceiptObject> =
         client.getTransactionReceipt(hash)
             .map(receiptMapper::map)
 }

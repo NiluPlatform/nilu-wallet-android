@@ -17,7 +17,7 @@ class ContractInfoDataSource @Inject constructor(
     suspend fun getContractInfos(walletId: Long) =
         dao.getContractInfos(walletId)
 
-    fun getContractInfoObservable(walletId: Long) =
+    fun getContractInfosObservable(walletId: Long) =
         dao.getContractInfosObservable(walletId)
 
     suspend fun delete(contract: ContractInfo) =

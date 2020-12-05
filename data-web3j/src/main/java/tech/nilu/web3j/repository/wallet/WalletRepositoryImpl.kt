@@ -4,6 +4,7 @@ import tech.nilu.domain.entity.wallet.WalletContractsObject
 import tech.nilu.domain.repository.WalletRepository
 import tech.nilu.web3j.Web3jApiClient
 import tech.nilu.web3j.mapper.WalletContractsMapper
+import tech.nilu.web3j.mapper.listMap
 import java.io.File
 import java.math.BigInteger
 import javax.inject.Inject
@@ -48,7 +49,7 @@ class WalletRepositoryImpl @Inject constructor(
 
     override suspend fun loadWalletsWithContracts(selectedNetworkId: Long, parent: File, password: String): List<WalletContractsObject> =
         sdk.loadWalletsWithContracts(selectedNetworkId, parent, password)
-            .map { mapper.map(it) }
+            .listMap(mapper::map)
 
     override suspend fun loadWalletWithContracts(walletId: Long, parent: File, password: String): WalletContractsObject? =
         sdk.loadWalletWithContracts(walletId, parent, password)?.let { mapper.map(it) }

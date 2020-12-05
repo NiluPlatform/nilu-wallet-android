@@ -1,5 +1,6 @@
 plugins {
     id("library-plugin")
+    kotlin("plugin.serialization")
     kotlin("kapt")
 }
 
@@ -14,6 +15,7 @@ dependencies {
     implementation(Dependencies.Google.protocolBuffers)
     implementation(Dependencies.KotlinX.coroutinesCore)
     implementation(Dependencies.KotlinX.coroutinesRx2)
+    implementation(Dependencies.KotlinX.serializationJson)
     implementation(Dependencies.OkHttp.okHttp)
     implementation(Dependencies.OkHttp.loggingInterceptor)
 

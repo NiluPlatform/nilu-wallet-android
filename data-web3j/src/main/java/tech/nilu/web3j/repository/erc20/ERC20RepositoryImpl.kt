@@ -45,6 +45,19 @@ class ERC20RepositoryImpl @Inject constructor(
         return contractInfoMapper.map(result)
     }
 
+    override suspend fun fetchERC20Token(walletId: Long, contract: ContractObject): ContractObject {
+        if (!contract.types.contains("ERC20") && !contract.types.contains("ERC20Basic"))
+            throw IllegalStateException("Not a ERC20 token!")
+
+        val erc20Token = client.fetchERC20Token(walletId, contract.address)
+        val result = erc20Token.copy(
+            id = contractInfoDao.insert(erc20Token),
+            walletId = contract.walletId,
+            types = contract.types
+        )
+        return contractInfoMapper.map(result)
+    }
+
     override suspend fun contractBalance(walletId: Long, contract: ContractObject): BigInteger? {
         if (!contract.types.contains("ERC20") && !contract.types.contains("ERC20Basic"))
             throw IllegalStateException("Not a ERC20 token!")

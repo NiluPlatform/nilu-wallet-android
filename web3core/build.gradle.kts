@@ -34,7 +34,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(Dependencies.KotlinX.coroutinesCore)
-                implementation(Dependencies.KotlinX.serialization)
+                implementation(Dependencies.KotlinX.serializationCore)
             }
         }
         val androidMain by getting {

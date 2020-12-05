@@ -5,7 +5,19 @@ import tech.nilu.domain.entity.NetworkObject
 
 interface NetworkRepository {
 
-    fun getActiveNetwork(): Flow<NetworkObject>
-
     suspend fun getNetwork(id: Long): NetworkObject?
+
+    suspend fun getNetwork(address: String): NetworkObject?
+
+    suspend fun getActiveNetwork(): NetworkObject?
+
+    fun observeActiveNetwork(): Flow<NetworkObject>
+
+    suspend fun getNetworks(): List<NetworkObject>
+
+    fun observeNetworks(): Flow<List<NetworkObject>>
+
+    suspend fun deactivateNetworks()
+
+    suspend fun updateNetwork(network: NetworkObject)
 }

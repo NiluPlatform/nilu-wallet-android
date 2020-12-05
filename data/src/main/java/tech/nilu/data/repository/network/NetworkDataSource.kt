@@ -23,6 +23,9 @@ class NetworkDataSource @Inject constructor(
     suspend fun getNetworks() =
         dao.getNetworks()
 
+    fun getNetworksObservable() =
+        dao.getNetworksObservable()
+
     suspend fun deactivateNetworks() =
         dao.deactivateNetworks()
 
