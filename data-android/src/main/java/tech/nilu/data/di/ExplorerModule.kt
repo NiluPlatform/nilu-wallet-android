@@ -4,8 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import tech.nilu.api.repository.explorer.ExplorerRepositoryImpl
 import tech.nilu.domain.repository.ExplorerRepository
-import tech.nilu.web3j.repository.explorer.ExplorerRepositoryImpl
 import javax.inject.Singleton
 
 @InstallIn(ApplicationComponent::class)

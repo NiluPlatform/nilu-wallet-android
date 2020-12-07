@@ -1,4 +1,4 @@
-package tech.nilu.web3j.mapper
+package tech.nilu.api.mapper
 
 import tech.nilu.api.entity.Transaction
 import tech.nilu.base.mapper.Mapper

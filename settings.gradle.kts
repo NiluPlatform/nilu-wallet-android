@@ -25,6 +25,7 @@ include(
 include(
     ":data",
     ":data-android",
+    ":data-api",
     ":data-web3j"
 )
 include(":domain")

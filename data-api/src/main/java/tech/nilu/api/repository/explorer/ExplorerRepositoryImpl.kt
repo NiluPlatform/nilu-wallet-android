@@ -1,10 +1,10 @@
-package tech.nilu.web3j.repository.explorer
+package tech.nilu.api.repository.explorer
 
 import tech.nilu.api.ExplorerSdk
+import tech.nilu.api.mapper.TransactionMapper
+import tech.nilu.api.mapper.listMap
 import tech.nilu.domain.entity.transaction.TransactionObject
 import tech.nilu.domain.repository.ExplorerRepository
-import tech.nilu.web3j.mapper.TransactionMapper
-import tech.nilu.web3j.mapper.listMap
 import javax.inject.Inject
 
 class ExplorerRepositoryImpl @Inject constructor(
