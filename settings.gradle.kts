@@ -32,5 +32,5 @@ include(
     ":feature:main"
 )
 include(
-    ":explorer"
+    ":shared:explorer"
 )

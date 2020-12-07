@@ -38,7 +38,7 @@ dependencies {
     implementation(project(":data-web3j"))
     implementation(project(":domain"))
     implementation(project(":feature:main"))
-    implementation(project(":explorer"))
+    implementation(project(":shared:explorer"))
 
     implementation(Dependencies.AndroidX.appcompat)
     implementation(Dependencies.AndroidX.constraintLayout)
