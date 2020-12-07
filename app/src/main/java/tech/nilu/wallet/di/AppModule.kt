@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import kotlinx.coroutines.Dispatchers
+import tech.nilu.api.ExplorerSdk
 import tech.nilu.thread.Dispatcher
 import javax.inject.Singleton
 
@@ -19,4 +20,8 @@ object AppModule {
         computation = Dispatchers.Default,
         main = Dispatchers.Main
     )
+
+    @Singleton
+    @Provides
+    fun provideExplorerSdk() = ExplorerSdk()
 }

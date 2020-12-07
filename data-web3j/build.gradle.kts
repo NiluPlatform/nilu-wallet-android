@@ -7,6 +7,7 @@ plugins {
 dependencies {
     implementation(project(":core:base"))
     implementation(project(":data"))
+    implementation(project(":explorer"))
     api(project(":domain"))
 
     implementation(Dependencies.spongyCastle)

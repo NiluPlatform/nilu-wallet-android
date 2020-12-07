@@ -11,6 +11,7 @@ object Config {
 
 object Dependencies {
     const val androidGradlePlugin = "com.android.tools.build:gradle:4.1.1"
+    const val kodein = "org.kodein.di:kodein-di:7.1.0"
     const val spongyCastle = "com.madgag.spongycastle:core:1.58.0.0"
     const val web3j = "org.web3j:core:4.6.0-android"
 
@@ -63,6 +64,17 @@ object Dependencies {
             const val compiler = "com.google.dagger:hilt-android-compiler:$version"
             const val gradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:$version"
         }
+    }
+
+    object Ktor {
+        private const val version = "1.4.3"
+        const val core = "io.ktor:ktor-client-core:$version"
+        const val serialization = "io.ktor:ktor-client-serialization:$version"
+        const val logging = "io.ktor:ktor-client-logging:$version"
+        const val android = "io.ktor:ktor-client-android:$version"
+        const val okhttp = "io.ktor:ktor-client-okhttp:$version"
+        const val serializationJvm = "io.ktor:ktor-client-serialization:$version"
+        const val ios = "io.ktor:ktor-client-ios:$version"
     }
 
     object Kotlin {

@@ -10,15 +10,15 @@ import tech.nilu.domain.entity.NetworkObject
 import tech.nilu.domain.entity.contractinfo.ContractObject
 import tech.nilu.domain.entity.wallet.WalletContractsObject
 import tech.nilu.domain.invoke
-import tech.nilu.domain.usecases.erc20.GetContractBalanceUseCase
+import tech.nilu.domain.usecases.explorer.GetTransactionsUseCase
 import tech.nilu.domain.usecases.network.ObserveActiveNetworkUseCase
 import tech.nilu.domain.usecases.wallet.GetAllWalletsWithContractsUseCase
 
 class MainViewModel @ViewModelInject constructor(
     private val app: Application,
-    private val getContractBalanceUseCase: GetContractBalanceUseCase,
-    private val getAllWalletsWithContractsUseCase: GetAllWalletsWithContractsUseCase,
-    private val observeActiveNetworkUseCase: ObserveActiveNetworkUseCase
+    private val getTransactionsUseCase: GetTransactionsUseCase,
+    private val observeActiveNetworkUseCase: ObserveActiveNetworkUseCase,
+    private val getAllWalletsWithContractsUseCase: GetAllWalletsWithContractsUseCase
 ) : AndroidViewModel(app) {
 
     val activeNetwork: LiveData<NetworkObject?> = liveData {
@@ -30,15 +30,21 @@ class MainViewModel @ViewModelInject constructor(
                 }
             }
     }
-    val wallets = liveData {
-        when (val result = getAllWalletsWithContractsUseCase(GetAllWalletsWithContractsUseCase.Params(1, app.filesDir, "1234567890"))) {
-            is Success -> emit(result.data)
-            is Error -> emit(emptyList<WalletContractsObject>())
-        }
+    val wallets = activeNetwork.switchMap {
+        it?.let {
+            liveData {
+                when (val result =
+                    getAllWalletsWithContractsUseCase(GetAllWalletsWithContractsUseCase.Params(it.id, app.filesDir, "1234567890"))) {
+                    is Success -> emit(result.data)
+                    is Error -> emit(emptyList<WalletContractsObject>())
+                }
+            }
+
+        } ?: MutableLiveData(emptyList())
     }
     val balance = wallets.switchMap {
         liveData {
-            when (val result = getContractBalanceUseCase(GetContractBalanceUseCase.Params(4, fakeContract))) {
+            when (val result = getTransactionsUseCase("0xC9c2dBEC5AFA62520F02c46EA2F193525EB2751d")) {
                 is Success -> emit(result.data)
                 else -> emit(null)
             }

@@ -31,4 +31,6 @@ include(":domain")
 include(
     ":feature:main"
 )
-include(":web3core")
+include(
+    ":explorer"
+)
