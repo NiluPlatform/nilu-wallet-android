@@ -1,4 +1,4 @@
-package tech.nilu.api.coroutines
+package tech.nilu.explorer.coroutines
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

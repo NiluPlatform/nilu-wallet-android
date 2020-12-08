@@ -1,9 +1,9 @@
-package tech.nilu.api.explorer
+package tech.nilu.explorer.explorer
 
 import io.ktor.client.request.*
 import io.ktor.http.*
-import tech.nilu.api.Result
-import tech.nilu.api.entity.Transaction
+import tech.nilu.explorer.Result
+import tech.nilu.explorer.entity.Transaction
 
 interface Explorer {
 

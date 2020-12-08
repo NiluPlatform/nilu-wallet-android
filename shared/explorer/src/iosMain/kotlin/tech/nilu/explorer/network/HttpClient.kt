@@ -1,4 +1,4 @@
-package tech.nilu.api.network
+package tech.nilu.explorer.network
 
 import io.ktor.client.*
 import io.ktor.client.engine.ios.*

@@ -1,4 +1,4 @@
-package tech.nilu.api
+package tech.nilu.explorer
 
 sealed class Result<T> {
     open fun get(): T? = null

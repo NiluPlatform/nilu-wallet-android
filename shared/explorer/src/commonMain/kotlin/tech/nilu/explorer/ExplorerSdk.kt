@@ -1,9 +1,9 @@
-package tech.nilu.api
+package tech.nilu.explorer
 
 import org.kodein.di.instance
-import tech.nilu.api.di.kodein
-import tech.nilu.api.entity.Transaction
-import tech.nilu.api.explorer.Explorer
+import tech.nilu.explorer.di.kodein
+import tech.nilu.explorer.entity.Transaction
+import tech.nilu.explorer.explorer.Explorer
 
 class ExplorerSdk {
 

@@ -1,11 +1,11 @@
-package tech.nilu.api.explorer
+package tech.nilu.explorer.explorer
 
-import tech.nilu.api.Result
-import tech.nilu.api.entity.Transaction
+import tech.nilu.explorer.Result
+import tech.nilu.explorer.entity.Transaction
 
-class PirlExplorer : Explorer {
+class Ether1Explorer : Explorer {
 
-    override val baseUrl: String = "http://devpool.nilu.tech/pirl/"
+    override val baseUrl: String = "https://walletapi.ether1.org/"
     override val canGetTransactions: Boolean = true
     override val canGetTokenTransactions: Boolean = true
 

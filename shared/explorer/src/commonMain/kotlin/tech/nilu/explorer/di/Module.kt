@@ -1,4 +1,4 @@
-package tech.nilu.api.di
+package tech.nilu.explorer.di
 
 import io.ktor.client.*
 import kotlinx.serialization.json.Json
@@ -6,9 +6,9 @@ import org.kodein.di.DI
 import org.kodein.di.bind
 import org.kodein.di.factory
 import org.kodein.di.singleton
-import tech.nilu.api.ExplorerSdk
-import tech.nilu.api.explorer.*
-import tech.nilu.api.network.getPlatformHttpClient
+import tech.nilu.explorer.ExplorerSdk
+import tech.nilu.explorer.explorer.*
+import tech.nilu.explorer.network.getPlatformHttpClient
 
 internal val kodein = DI {
 

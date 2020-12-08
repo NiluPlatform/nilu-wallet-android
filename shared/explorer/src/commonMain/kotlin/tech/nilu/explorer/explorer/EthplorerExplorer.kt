@@ -1,8 +1,8 @@
-package tech.nilu.api.explorer
+package tech.nilu.explorer.explorer
 
-import tech.nilu.api.Result
-import tech.nilu.api.Success
-import tech.nilu.api.entity.Transaction
+import tech.nilu.explorer.Result
+import tech.nilu.explorer.Success
+import tech.nilu.explorer.entity.Transaction
 
 class EthplorerExplorer : Explorer {
 

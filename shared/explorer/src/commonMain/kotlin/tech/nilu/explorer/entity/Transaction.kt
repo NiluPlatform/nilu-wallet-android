@@ -1,4 +1,4 @@
-package tech.nilu.api.entity
+package tech.nilu.explorer.entity
 
 import kotlinx.serialization.Serializable
 

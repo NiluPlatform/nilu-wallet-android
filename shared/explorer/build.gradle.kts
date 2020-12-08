@@ -19,7 +19,7 @@ kotlin {
     ios {
         binaries {
             framework {
-                baseName = "api"
+                baseName = "explorer"
             }
         }
     }

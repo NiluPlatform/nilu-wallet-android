@@ -1,7 +1,7 @@
 @file:JvmName("HttpClientJvmKt")
 @file:JvmMultifileClass
 
-package tech.nilu.api.network
+package tech.nilu.explorer.network
 
 import android.util.Log
 import io.ktor.client.*

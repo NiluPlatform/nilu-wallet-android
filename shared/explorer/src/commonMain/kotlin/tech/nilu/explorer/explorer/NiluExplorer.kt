@@ -1,4 +1,4 @@
-package tech.nilu.api.explorer
+package tech.nilu.explorer.explorer
 
 import io.ktor.client.*
 import io.ktor.client.request.*
@@ -8,11 +8,11 @@ import io.ktor.utils.io.errors.*
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.json.Json
 import org.kodein.di.instance
-import tech.nilu.api.Error
-import tech.nilu.api.Result
-import tech.nilu.api.Success
-import tech.nilu.api.di.kodein
-import tech.nilu.api.entity.Transaction
+import tech.nilu.explorer.Error
+import tech.nilu.explorer.Result
+import tech.nilu.explorer.Success
+import tech.nilu.explorer.di.kodein
+import tech.nilu.explorer.entity.Transaction
 
 class NiluExplorer : Explorer {
 
