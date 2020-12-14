@@ -5,7 +5,7 @@ import io.ktor.http.*
 import tech.nilu.explorer.Result
 import tech.nilu.explorer.entity.Transaction
 
-interface Explorer {
+internal interface Explorer {
 
     val baseUrl: String
     val canGetTransactions: Boolean

@@ -3,7 +3,7 @@ package tech.nilu.explorer.explorer
 import tech.nilu.explorer.Result
 import tech.nilu.explorer.entity.Transaction
 
-class Ether1Explorer : Explorer {
+internal class Ether1Explorer : Explorer {
 
     override val baseUrl: String = "https://walletapi.ether1.org/"
     override val canGetTransactions: Boolean = true

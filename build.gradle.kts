@@ -10,6 +10,7 @@ buildscript {
         classpath(Dependencies.androidGradlePlugin)
         classpath(Dependencies.Google.Hilt.gradlePlugin)
         classpath(Dependencies.Kotlin.serialization)
+        classpath(Dependencies.SQLDelight.gradlePlugin)
     }
 }
 group = Config.Android.applicationId

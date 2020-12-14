@@ -14,7 +14,7 @@ import tech.nilu.explorer.Success
 import tech.nilu.explorer.di.kodein
 import tech.nilu.explorer.entity.Transaction
 
-class NiluExplorer : Explorer {
+internal class NiluExplorer : Explorer {
 
     private val json: Json by kodein.di.instance()
     private val httpClient: HttpClient by kodein.di.instance()

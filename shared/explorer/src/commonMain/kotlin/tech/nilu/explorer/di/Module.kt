@@ -4,10 +4,11 @@ import io.ktor.client.*
 import kotlinx.serialization.json.Json
 import org.kodein.di.DI
 import org.kodein.di.bind
-import org.kodein.di.factory
+import org.kodein.di.multiton
 import org.kodein.di.singleton
-import tech.nilu.explorer.ExplorerSdk
+import tech.nilu.explorer.database.DatabaseDriverFactory
 import tech.nilu.explorer.explorer.*
+import tech.nilu.explorer.network.NetworkRepository
 import tech.nilu.explorer.network.getPlatformHttpClient
 
 internal val kodein = DI {
@@ -16,7 +17,7 @@ internal val kodein = DI {
 
     bind<Json>() with singleton { Json { ignoreUnknownKeys = true } }
 
-    bind<Explorer>() with factory { chainId: Long ->
+    bind<Explorer>() with multiton { chainId: Long ->
         when (chainId) {
             1L -> EthplorerExplorer()
             512L -> NiluExplorer()
@@ -26,5 +27,5 @@ internal val kodein = DI {
         }
     }
 
-    bind<ExplorerSdk>() with singleton { ExplorerSdk() }
+    bind<NetworkRepository>() with multiton { driver: DatabaseDriverFactory -> NetworkRepository(driver) }
 }

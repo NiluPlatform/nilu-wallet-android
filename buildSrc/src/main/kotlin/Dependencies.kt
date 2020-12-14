@@ -11,7 +11,6 @@ object Config {
 
 object Dependencies {
     const val androidGradlePlugin = "com.android.tools.build:gradle:4.1.1"
-    const val kodein = "org.kodein.di:kodein-di:7.1.0"
     const val spongyCastle = "com.madgag.spongycastle:core:1.58.0.0"
     const val web3j = "org.web3j:core:4.6.0-android"
 
@@ -77,15 +76,21 @@ object Dependencies {
         const val ios = "io.ktor:ktor-client-ios:$version"
     }
 
+    object Kodein {
+        private const val version = "7.1.0"
+        const val core = "org.kodein.di:kodein-di:$version"
+        const val androidX = "org.kodein.di:kodein-di-framework-android-x:$version"
+    }
+
     object Kotlin {
-        private const val version = "1.4.20"
+        private const val version = "1.4.21"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
         const val serialization = "org.jetbrains.kotlin:kotlin-serialization:$version"
         const val stdlibJdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"
     }
 
     object KotlinX {
-        private const val coroutinesVersion = "1.4.1"
+        private const val coroutinesVersion = "1.4.2"
         private const val serializationVersion = "1.0.1"
         const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
         const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
@@ -108,6 +113,15 @@ object Dependencies {
         const val rxJava = "io.reactivex.rxjava2:rxjava:2.2.20"
         const val rxAndroid = "io.reactivex.rxjava2:rxandroid:2.1.1"
         const val rxKotlin = "io.reactivex.rxjava2:rxkotlin:2.4.0"
+    }
+
+    object SQLDelight {
+        private const val version = "1.4.3"
+        const val gradlePlugin = "com.squareup.sqldelight:gradle-plugin:$version"
+        const val runtime = "com.squareup.sqldelight:runtime:$version"
+        const val androidDriver = "com.squareup.sqldelight:android-driver:$version"
+        const val iosDriver = "com.squareup.sqldelight:native-driver:$version"
+        const val coroutines = "com.squareup.sqldelight:coroutines-extensions-jvm:$version"
     }
 
     object Test

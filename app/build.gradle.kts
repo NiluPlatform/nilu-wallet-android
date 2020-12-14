@@ -1,6 +1,7 @@
 plugins {
     id("app-plugin")
     id("dagger.hilt.android.plugin")
+    kotlin("kapt")
 }
 
 group = Config.Android.applicationId
@@ -9,6 +10,11 @@ version = Config.Android.versionName
 android {
     defaultConfig {
         applicationId = Config.Android.applicationId
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
     }
     buildTypes {
         getByName("release") {
