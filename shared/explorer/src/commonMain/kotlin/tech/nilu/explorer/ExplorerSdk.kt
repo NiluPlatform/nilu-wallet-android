@@ -11,13 +11,14 @@ import tech.nilu.explorer.network.NetworkRepository
 class ExplorerSdk(driver: DatabaseDriverFactory) {
 
     private val repository: NetworkRepository by kodein.di.instance(arg = driver)
-    private val explorer: Explorer by lazy {
-        val chainId = repository.getActiveNetwork { it.chainId }
-        kodein.direct.instance(arg = chainId)
+
+    private suspend fun getExplorer(): Explorer {
+        val chainId = repository.getActiveNetwork().chainId
+        return kodein.direct.instance(arg = chainId)
     }
 
     suspend fun getTransactions(address: String): List<Transaction> =
-        when (val response = explorer.getTransactions(address)) {
+        when (val response = getExplorer().getTransactions(address)) {
             is Success -> response.data
             is Error -> emptyList()
         }
@@ -26,12 +27,12 @@ class ExplorerSdk(driver: DatabaseDriverFactory) {
         tokenAddress: String,
         walletAddress: String
     ): List<Transaction> =
-        when (val response = explorer.getTokenTransactions(tokenAddress, walletAddress)) {
+        when (val response = getExplorer().getTokenTransactions(tokenAddress, walletAddress)) {
             is Success -> response.data
             is Error -> emptyList()
         }
 
-    fun canGetTransactions(): Boolean = explorer.canGetTransactions
+    suspend fun canGetTransactions(): Boolean = getExplorer().canGetTransactions
 
-    fun canGetTokenTransactions(): Boolean = explorer.canGetTokenTransactions
+    suspend fun canGetTokenTransactions(): Boolean = getExplorer().canGetTokenTransactions
 }

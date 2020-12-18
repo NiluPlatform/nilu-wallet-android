@@ -11,7 +11,7 @@ abstract class NetworkSdk(driver: DatabaseDriverFactory) {
 
     protected val repository: NetworkRepository by kodein.di.instance(arg = driver)
 
-    suspend fun addNetworks(networks: List<Network>) = repository.addNetworks(networks) {}
+    suspend fun addNetworks(networks: List<Network>) = repository.addNetworks(networks)
 
     abstract fun count(): Flow<Long>
 }
