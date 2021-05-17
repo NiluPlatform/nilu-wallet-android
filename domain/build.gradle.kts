@@ -18,11 +18,6 @@ dependencies {
     kapt(Dependencies.Google.Hilt.compiler)
 }
 
-repositories {
-    google()
-    mavenCentral()
-}
-
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8

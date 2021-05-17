@@ -10,7 +10,7 @@ object Config {
 }
 
 object Dependencies {
-    const val androidGradlePlugin = "com.android.tools.build:gradle:4.1.1"
+    const val androidGradlePlugin = "com.android.tools.build:gradle:4.2.0"
     const val kodein = "org.kodein.di:kodein-di:7.1.0"
     const val spongyCastle = "com.madgag.spongycastle:core:1.58.0.0"
     const val web3j = "org.web3j:core:4.6.0-android"
@@ -78,15 +78,15 @@ object Dependencies {
     }
 
     object Kotlin {
-        private const val version = "1.4.20"
+        private const val version = "1.5.0"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
         const val serialization = "org.jetbrains.kotlin:kotlin-serialization:$version"
         const val stdlibJdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"
     }
 
     object KotlinX {
-        private const val coroutinesVersion = "1.4.1"
-        private const val serializationVersion = "1.0.1"
+        private const val coroutinesVersion = "1.5.0-RC"
+        private const val serializationVersion = "1.2.0"
         const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
         const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
         const val coroutinesRx2 = "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:$coroutinesVersion"

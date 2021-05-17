@@ -20,7 +20,7 @@ class ExplorerRepositoryImpl @Inject constructor(
         sdk.getTokenTransactions(tokenAddress, walletAddress)
             .listMap(mapper::map)
 
-    override fun canGetTransactions(): Boolean = sdk.canGetTransactions()
+    override suspend fun canGetTransactions(): Boolean = sdk.canGetTransactions()
 
-    override fun canGetTokenTransactions(): Boolean = sdk.canGetTokenTransactions()
+    override suspend fun canGetTokenTransactions(): Boolean = sdk.canGetTokenTransactions()
 }

@@ -9,7 +9,6 @@ plugins {
 repositories {
     gradlePluginPortal()
     google()
-    jcenter()
     mavenCentral()
     maven { url = uri("https://dl.bintray.com/kotlin/kotlin-eap") }
 }

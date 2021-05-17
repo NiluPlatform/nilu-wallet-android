@@ -11,7 +11,7 @@ interface ExplorerRepository {
         walletAddress: String
     ): List<TransactionObject>
 
-    fun canGetTransactions(): Boolean
+    suspend fun canGetTransactions(): Boolean
 
-    fun canGetTokenTransactions(): Boolean
+    suspend fun canGetTokenTransactions(): Boolean
 }

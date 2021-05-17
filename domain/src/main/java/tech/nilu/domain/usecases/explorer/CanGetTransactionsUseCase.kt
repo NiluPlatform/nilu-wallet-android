@@ -10,5 +10,5 @@ class CanGetTransactionsUseCase @Inject constructor(
     dispatcher: Dispatcher
 ) : UseCase<Unit, Boolean>(dispatcher.io) {
 
-    override suspend fun execute(params: Unit): Boolean = repository.canGetTokenTransactions()
+    override suspend fun execute(params: Unit): Boolean = repository.canGetTransactions()
 }
