@@ -1,0 +1,30 @@
+CREATE TABLE IF NOT EXISTS Network (
+    `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    `name` TEXT,
+    `address` TEXT,
+    `active` INTEGER NOT NULL,
+    `symbol` TEXT,
+    `chainId` INTEGER NOT NULL,
+    `explorerAddress` TEXT
+);
+
+insert:
+INSERT INTO Network (id, name, address, active, symbol, chainId, explorerAddress) VALUES (?, ?, ?, ?, ?, ?, ?);
+
+getNetworkById:
+SELECT * FROM Network WHERE id = ?1;
+
+getNetworkByAddress:
+SELECT * FROM Network WHERE address = ?1;
+
+getActiveNetwork:
+SELECT * FROM Network WHERE active = 1 LIMIT 1;
+
+getNetworks:
+SELECT * FROM Network;
+
+deactivateNetworks:
+UPDATE Network SET active = 0;
+
+count:
+SELECT COUNT(id) FROM Network;

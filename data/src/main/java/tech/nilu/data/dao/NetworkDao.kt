@@ -11,7 +11,7 @@ abstract class NetworkDao : BaseDao<Network>() {
     @Query("SELECT * FROM Network WHERE id = :id")
     abstract suspend fun getNetwork(id: Long): Network?
 
-    @Query("SELECT * FROM Network WHERE id = :address")
+    @Query("SELECT * FROM Network WHERE address = :address")
     abstract suspend fun getNetwork(address: String): Network?
 
     @Query("SELECT * FROM Network WHERE active = 1 LIMIT 1")

@@ -3,7 +3,7 @@ package tech.nilu.explorer.explorer
 import tech.nilu.explorer.Result
 import tech.nilu.explorer.entity.Transaction
 
-class PirlExplorer : Explorer {
+internal class PirlExplorer : Explorer {
 
     override val baseUrl: String = "http://devpool.nilu.tech/pirl/"
     override val canGetTransactions: Boolean = true

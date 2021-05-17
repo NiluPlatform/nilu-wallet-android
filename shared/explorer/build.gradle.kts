@@ -4,6 +4,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     kotlin("plugin.serialization")
+    id("com.squareup.sqldelight")
 }
 
 repositories {
@@ -32,27 +33,34 @@ kotlin {
         }
         val commonMain by getting {
             dependencies {
-                implementation(Dependencies.kodein)
+                implementation(Dependencies.Kodein.core)
                 implementation(Dependencies.KotlinX.coroutinesCore)
                 implementation(Dependencies.KotlinX.serializationCore)
                 implementation(Dependencies.Ktor.core)
                 implementation(Dependencies.Ktor.serialization)
                 implementation(Dependencies.Ktor.logging)
+                implementation(Dependencies.SQLDelight.runtime)
             }
         }
         val androidMain by getting {
             dependencies {
+                implementation(project(":core:base"))
+                api(project(":domain"))
+
                 api(Dependencies.AndroidX.coreKtx)
                 implementation(Dependencies.KotlinX.coroutinesAndroid)
                 implementation(Dependencies.Ktor.android)
                 implementation(Dependencies.Ktor.okhttp)
                 implementation(Dependencies.OkHttp.loggingInterceptor)
+                implementation(Dependencies.SQLDelight.androidDriver)
+                implementation(Dependencies.SQLDelight.coroutines)
             }
         }
         val iosMain by getting {
             dependencies {
                 implementation(Dependencies.KotlinX.coroutinesCore)
                 implementation(Dependencies.Ktor.ios)
+                implementation(Dependencies.SQLDelight.iosDriver)
             }
         }
     }
@@ -95,6 +103,12 @@ android {
         kotlinOptions {
             jvmTarget = "1.8"
         }
+    }
+}
+
+sqldelight {
+    database("NiluDatabase") {
+        packageName = "tech.nilu.explorer.database"
     }
 }
 

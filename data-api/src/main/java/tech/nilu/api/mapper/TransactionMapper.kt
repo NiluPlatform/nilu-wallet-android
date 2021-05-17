@@ -22,4 +22,6 @@ class TransactionMapper @Inject constructor() : Mapper<Transaction, TransactionO
     }
 }
 
-suspend fun List<Transaction>.listMap(mapper: suspend (Transaction) -> TransactionObject): List<TransactionObject> = map { mapper(it) }
+suspend fun List<Transaction>.listMap(
+    mapper: suspend (Transaction) -> TransactionObject
+): List<TransactionObject> = map { mapper(it) }

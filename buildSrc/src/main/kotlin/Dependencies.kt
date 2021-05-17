@@ -77,6 +77,12 @@ object Dependencies {
         const val ios = "io.ktor:ktor-client-ios:$version"
     }
 
+    object Kodein {
+        private const val version = "7.1.0"
+        const val core = "org.kodein.di:kodein-di:$version"
+        const val androidX = "org.kodein.di:kodein-di-framework-android-x:$version"
+    }
+
     object Kotlin {
         private const val version = "1.5.0"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
@@ -108,6 +114,15 @@ object Dependencies {
         const val rxJava = "io.reactivex.rxjava2:rxjava:2.2.20"
         const val rxAndroid = "io.reactivex.rxjava2:rxandroid:2.1.1"
         const val rxKotlin = "io.reactivex.rxjava2:rxkotlin:2.4.0"
+    }
+
+    object SQLDelight {
+        private const val version = "1.4.3"
+        const val gradlePlugin = "com.squareup.sqldelight:gradle-plugin:$version"
+        const val runtime = "com.squareup.sqldelight:runtime:$version"
+        const val androidDriver = "com.squareup.sqldelight:android-driver:$version"
+        const val iosDriver = "com.squareup.sqldelight:native-driver:$version"
+        const val coroutines = "com.squareup.sqldelight:coroutines-extensions-jvm:$version"
     }
 
     object Test

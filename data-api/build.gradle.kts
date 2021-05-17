@@ -8,6 +8,8 @@ dependencies {
     implementation(project(":shared:explorer"))
     api(project(":domain"))
 
+    implementation(Dependencies.KotlinX.coroutinesCore)
+
     implementation(Dependencies.Google.Hilt.hilt)
     kapt(Dependencies.Google.Hilt.compiler)
 }

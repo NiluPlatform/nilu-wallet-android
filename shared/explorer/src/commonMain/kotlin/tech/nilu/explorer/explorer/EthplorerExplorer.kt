@@ -4,7 +4,7 @@ import tech.nilu.explorer.Result
 import tech.nilu.explorer.Success
 import tech.nilu.explorer.entity.Transaction
 
-class EthplorerExplorer : Explorer {
+internal class EthplorerExplorer : Explorer {
 
     override val baseUrl: String = "https://api.ethplorer.io/"
     override val canGetTransactions: Boolean = true

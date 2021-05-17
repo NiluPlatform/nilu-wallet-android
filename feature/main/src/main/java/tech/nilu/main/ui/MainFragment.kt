@@ -23,7 +23,7 @@ class MainFragment : BindableFragment<FragmentMainBinding>() {
         viewModel.onInit()
         viewModel.activeNetwork.observe(viewLifecycleOwner) { println(it) }
         viewModel.wallets.observe(viewLifecycleOwner) { println(it) }
-        viewModel.balance.observe(viewLifecycleOwner) {
+        viewModel.transactions.observe(viewLifecycleOwner) {
             println(it)
             binding.progressBar.visibility = View.GONE
         }

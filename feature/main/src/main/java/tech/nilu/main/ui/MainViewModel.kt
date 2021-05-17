@@ -7,19 +7,37 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import tech.nilu.base.result.Success
 import tech.nilu.domain.entity.NetworkObject
-import tech.nilu.domain.entity.contractinfo.ContractObject
 import tech.nilu.domain.entity.wallet.WalletContractsObject
 import tech.nilu.domain.invoke
-import tech.nilu.domain.usecases.explorer.GetTransactionsUseCase
+import tech.nilu.domain.usecases.network.AddNetworksUseCase
 import tech.nilu.domain.usecases.network.ObserveActiveNetworkUseCase
+import tech.nilu.domain.usecases.network.ObserveNetworksCountUseCase
 import tech.nilu.domain.usecases.wallet.GetAllWalletsWithContractsUseCase
 
 class MainViewModel @ViewModelInject constructor(
     private val app: Application,
-    private val getTransactionsUseCase: GetTransactionsUseCase,
     private val observeActiveNetworkUseCase: ObserveActiveNetworkUseCase,
-    private val getAllWalletsWithContractsUseCase: GetAllWalletsWithContractsUseCase
+    private val getAllWalletsWithContractsUseCase: GetAllWalletsWithContractsUseCase,
+    private val observeNetworksCountUseCase: ObserveNetworksCountUseCase,
+    private val addNetworksUseCase: AddNetworksUseCase
 ) : AndroidViewModel(app) {
+
+    private val count: LiveData<Long?> = liveData {
+        observeNetworksCountUseCase()
+            .collect { result ->
+                when (result) {
+                    is Success -> emit(result.data)
+                    else -> emit(null)
+                }
+            }
+    }
+    private val countObserver = Observer<Long?> {
+        viewModelScope.launch {
+            if (it == 0L) {
+                addNetworksUseCase(NETWORKS)
+            }
+        }
+    }
 
     val activeNetwork: LiveData<NetworkObject?> = liveData {
         observeActiveNetworkUseCase()
@@ -33,8 +51,7 @@ class MainViewModel @ViewModelInject constructor(
     val wallets = activeNetwork.switchMap {
         it?.let {
             liveData {
-                when (val result =
-                    getAllWalletsWithContractsUseCase(GetAllWalletsWithContractsUseCase.Params(it.id, app.filesDir, "1234567890"))) {
+                when (val result = getAllWalletsWithContractsUseCase(GetAllWalletsWithContractsUseCase.Params(it.id, app.filesDir, "1234567890"))) {
                     is Success -> emit(result.data)
                     is Error -> emit(emptyList<WalletContractsObject>())
                 }
@@ -42,19 +59,25 @@ class MainViewModel @ViewModelInject constructor(
 
         } ?: MutableLiveData(emptyList())
     }
-    val balance = wallets.switchMap {
-        liveData {
-            when (val result = getTransactionsUseCase("0xC9c2dBEC5AFA62520F02c46EA2F193525EB2751d")) {
-                is Success -> emit(result.data)
-                else -> emit(null)
-            }
-        }
-    }
-
-    private val fakeContract = ContractObject(0, 0, "0x4f2a8a241972a0106a152cd9549c42760d9bf9b6", "", "", "ERC20")
 
     fun onInit() {
         viewModelScope.launch {
+            count.observeForever(countObserver)
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        count.removeObserver(countObserver)
+    }
+
+    companion object {
+        private val NETWORKS: List<NetworkObject> = listOf(
+            NetworkObject(1, "Nilu", "https://walletapi.nilu.tech", 1, "Ɲ", 512, "https://walletapi.nilu.tech/"),
+            NetworkObject(2, "Ethereum", "https://mainnet.infura.io", 0, "Ξ", 1, "https://api.ethplorer.io/"),
+            NetworkObject(3, "Ropsten (Test)", "https://ropsten.infura.io", 0, "Ξ", 3, ""),
+            NetworkObject(4, "Pirl", "https://rpc.pirl.minerpool.net", 0, "PIRL", 3125659152, "http://devpool.nilu.tech/pirl/"),
+            NetworkObject(5, "Ether-1", "https://rpc.ether1.org", 0, "ETHO", 1313114, "https://walletapi.ether1.org/")
+        )
     }
 }

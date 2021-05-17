@@ -13,7 +13,7 @@ import tech.nilu.data.entity.*
         NiluTransaction::class,
         Wallet::class
     ],
-    exportSchema = false,
+    exportSchema = true,
     version = 4
 )
 @TypeConverters(NiluTypeConverters::class)
